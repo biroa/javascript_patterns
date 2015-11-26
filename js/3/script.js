@@ -1,7 +1,7 @@
 /**
  * Created by biroa on 11/25/2015.
  *
- * Module Design Pattern
+ * Module Design Pattern -> will be converted to Module Reveal Pattern
  */
 
 var chatModule = (function(){
