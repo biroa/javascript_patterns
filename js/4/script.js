@@ -4,10 +4,10 @@
  * Module Reveal Pattern
  *
  * add underscore tp private variables and functions
- * expose in return{public:functions}
+ * expose in return {public:functions}
  */
 
-var chatModule = (function(){
+var chatModule = (function () {
     //init private functions and variables
     var _leadself = 'Me: ',
         _leadcomputer = "PC: ",
@@ -15,12 +15,12 @@ var chatModule = (function(){
         _msgYes = "Yes, that's a great idea.",
         _msgNo = "No, that must be a mistake.",
         _aSassyStuff = [
-        "Like mold on books, grow myths on history.",
-        "She moved like a poem and smiled like a sphinx.",
-        "As long as we don’t die, this is gonna be one hell of a story.",
-        "She laughed, and the desert sang.",
-        "You’ve got about as much charm as a dead slug."
-    ];
+            "Like mold on books, grow myths on history.",
+            "She moved like a poem and smiled like a sphinx.",
+            "As long as we don’t die, this is gonna be one hell of a story.",
+            "She laughed, and the desert sang.",
+            "You’ve got about as much charm as a dead slug."
+        ];
 
     function _echo(msg) {
         _aSaid.push("<div>" + msg + "</div>");
@@ -52,13 +52,13 @@ var chatModule = (function(){
 
 
     return {//expose public functions
-        talk:talk,
-        replayYesNo:replayYesNo,
-        saySassyStuff:saySassyStuff
+        talk: talk,
+        replayYesNo: replayYesNo,
+        saySassyStuff: saySassyStuff
     }
 })();
 
-$(document).ready(function(){
+$(document).ready(function () {
     chatModule.talk("Module Design Pattern");
     chatModule.replayYesNo();
     chatModule.saySassyStuff();
