@@ -3,7 +3,7 @@
  *
  * Module Reveal Pattern
  *
- * add underscore tp private variables and functions
+ * add underscore to private variables and functions
  * expose in return {public:functions}
  */
 
