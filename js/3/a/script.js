@@ -1,9 +1,7 @@
 /**
  * Created by biroa on 12/01/2015.
  *
- * Abstracting
- *
- *
+ * Abstracting Singleton Design Pattern
  *
  */
 
@@ -66,7 +64,7 @@
     };
 
 
-    CircleFactory = function () {
+    ShapeFactory = function () {
         this.types = {};
         this.create = function (type) {
             return new this.types[type]().get();
@@ -84,18 +82,24 @@
 
         function init() {
             var _aCircle = [],
-                _stage = $('.advert'),
-                _cf = new CircleFactory();
-            _cf.register('green', GreenCircleBuilder);
-            _cf.register('blue', BlueCircleBuilder);
-
+                _stage,
+                _sf = new ShapeFactory();
 
             function _position(circle, left, top) {
                 circle.move(left, top);
             }
 
+            function registerShapes(name,className){
+                _sf.register(name, className);
+                _sf.register(name, className);
+            }
+
+            function setStage(stg){
+                _stage = stg;
+            }
+
             function create(left, top, type) {
-                var circle = _cf.create(type);
+                var circle = _sf.create(type);
                 circle.move(left, top);
                 return circle;
             }
@@ -112,7 +116,9 @@
             return {//expose public functions
                 index: index,
                 create: create,
-                add: add
+                add: add,
+                register:registerShapes,
+                setStage:setStage
             };
         }
 
@@ -128,8 +134,11 @@
     })();
 
     $(win.document).ready(function () {
+        var cgs = CircleGeneratorSingleton.getInstance();
+        cgs.register('green',GreenCircleBuilder);
+        cgs.register('blue',BlueCircleBuilder);
+        cgs.setStage($('.advert'));
         $('.advert').click(function (e) {
-            var cgs = CircleGeneratorSingleton.getInstance();
             var circle = cgs.create(e.pageX - 25, e.pageY - 25, 'green');
             cgs.add(circle);
         });
@@ -137,7 +146,6 @@
 
         $(document).keypress(function (e) {
             if (e.keyCode == '97') { // 'a' is pressed
-                var cgs = CircleGeneratorSingleton.getInstance();
                 var circle = cgs.create(Math.floor(Math.random() * 600), Math.floor(Math.random() * 600), 'blue');
                 cgs.add(circle);
             }
