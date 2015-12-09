@@ -94,7 +94,7 @@
         item.addClass(this.sig + this.index);
         this.contex.append(item);
     };
-    
+
     StageAdapter.prototype.remove = function (index) {
         this.contex.remove('.' + this.sig + index);
     };
