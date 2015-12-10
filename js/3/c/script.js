@@ -14,23 +14,41 @@
 
 (function (win, $) {
 
+    /**
+     * @param src
+     * @param out
+     */
     function clone(src, out) {
         for (var attr in src.prototype) {
             out.prototype[attr] = src.prototype[attr];
         }
     }
 
+    /**
+     * @constructor
+     */
     function Circle() {
         this.item = $('<div class="circle"></div>');
     }
 
+    /**
+     * @param clr
+     */
     Circle.prototype.color = function (clr) {
         this.item.css('background', clr);
     };
+    /**
+     *
+     * @param left
+     * @param top
+     */
     Circle.prototype.move = function (left, top) {
         this.item.css('left', left);
         this.item.css('top', top);
     };
+    /**
+     * @returns {*|HTMLElement}
+     */
     Circle.prototype.get = function () {
         return this.item;
     };
