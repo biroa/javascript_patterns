@@ -25,6 +25,7 @@
     }
 
     /**
+     * Create the circle constructor
      * @constructor
      */
     function Circle() {
@@ -53,12 +54,21 @@
         return this.item;
     };
 
+    /**
+     * Create the rectangle constructor
+     * @constructor
+     */
     function Rect() {
         this.item = $('<div class="rect"></div>');
     }
 
+    //Clone the circle properties to the React
     clone(Circle, Rect);
 
+    /**
+     *
+     * @constructor
+     */
     function GreenCircleBuilder() {
         this.item = new Circle();
         this.init();
@@ -161,7 +171,7 @@
                 _cc.action('color', clr);
             }
 
-            function move(left,top){
+            function move(left, top) {
                 _cc.action('move', left, top);
             }
 
@@ -180,8 +190,8 @@
                 add: add,
                 register: registerShapes,
                 setStage: setStage,
-                tint:tint,
-                move:move
+                tint: tint,
+                move: move
             };
         }
 
@@ -212,12 +222,12 @@
             if (e.keyCode === 97) { // 'a' is pressed
                 var circle = cgs.create(Math.floor(Math.random() * 600), Math.floor(Math.random() * 600), 'blue');
                 cgs.add(circle);
-            }else if(e.keyCode === 98){
+            } else if (e.keyCode === 98) {
                 cgs.tint('black');
-            }else if(e.keyCode === 119){
-                cgs.move("+=5px","+=0px");
-            }else if(e.keyCode === 113){
-                cgs.move("-=5px","+=0px");
+            } else if (e.keyCode === 119) {
+                cgs.move("+=5px", "+=0px");
+            } else if (e.keyCode === 113) {
+                cgs.move("-=5px", "+=0px");
             }
         });
 
