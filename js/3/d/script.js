@@ -3,6 +3,12 @@
  *
  * Decorator Design Pattern
  *
+ *  Add features to specific objects without creating subclass or changing
+ *  the original interface/constructor
+ *
+ *  Extra features without class or prototype
+ *
+ *  not used very often
  *
  */
 
@@ -60,6 +66,16 @@
     //Clone the circle properties to the React
     clone(Circle, Rect);
 
+    //Decorator function
+    function  selfDestructDecorator(obj){
+        obj.item.click(function(){
+            obj.kill();
+        })
+        obj.kill = function(){
+            obj.item.remove();
+        }
+    }
+
     /**
      *
      * @constructor
@@ -86,8 +102,9 @@
         var rect = new Rect();
         rect.color("yellow");
         rect.move(100, 100);
-
-        return this.item.get().append(rect.get());
+        selfDestructDecorator(rect);//decorate the Blue circles yellow rectangle
+        //to become removable
+        this.item.get().append(rect.get());
     };
     BlueCircleBuilder.prototype.get = function () {
         return this.item;
