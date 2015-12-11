@@ -102,8 +102,10 @@
         var rect = new Rect();
         rect.color("yellow");
         rect.move(100, 100);
-        selfDestructDecorator(rect);//decorate the Blue circles yellow rectangle
-        //to become removable
+        selfDestructDecorator(rect);/*
+         decorate the Blue circles yellow rectangle
+         to become removable
+         */
         this.item.get().append(rect.get());
     };
     BlueCircleBuilder.prototype.get = function () {
