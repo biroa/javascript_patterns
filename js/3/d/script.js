@@ -67,11 +67,11 @@
     clone(Circle, Rect);
 
     //Decorator function
-    function  selfDestructDecorator(obj){
-        obj.item.click(function(){
+    function selfDestructDecorator(obj) {
+        obj.item.click(function () {
             obj.kill();
         })
-        obj.kill = function(){
+        obj.kill = function () {
             obj.item.remove();
         }
     }
@@ -102,7 +102,8 @@
         var rect = new Rect();
         rect.color("yellow");
         rect.move(100, 100);
-        selfDestructDecorator(rect);/*
+        selfDestructDecorator(rect);
+        /*
          decorate the Blue circles yellow rectangle
          to become removable
          */
