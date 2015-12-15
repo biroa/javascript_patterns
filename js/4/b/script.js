@@ -73,16 +73,16 @@
     //Clone the circle properties to the React
     clone(Circle, Rect);
 
-    function shapeFacade(shp){
-        return{
-            color:function(clr){
+    function shapeFacade(shp) {
+        return {
+            color: function (clr) {
                 shp.color(clr);
             },
-            move:function(x,y){
+            move: function (x, y) {
                 shp.move(x, y);
             },
-            getID:function(){
-              return shp.getID();
+            getID: function () {
+                return shp.getID();
             }
         };
 
@@ -176,9 +176,9 @@
         }
     };
 
-    function FlyWeightFader(item){
-        if(item.hasClass('circle')){
-            item.fadeTo(.5,item.css('opacity') *.5);
+    function FlyWeightFader(item) {
+        if (item.hasClass('circle')) {
+            item.fadeTo(.5, item.css('opacity') * .5);
         }
     };
 
@@ -263,7 +263,6 @@
             FlyWeightFader($(e.target));
 
         });
-
 
 
         $(document).keypress(function (e) {
