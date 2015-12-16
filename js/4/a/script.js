@@ -152,9 +152,9 @@
         }
     };
 
-    function FlyWeightFader(item){
-        if(item.hasClass('circle')){
-            item.fadeTo(.5,item.css('opacity') *.5);
+    function FlyWeightFader(item) {
+        if (item.hasClass('circle')) {
+            item.fadeTo(.5, item.css('opacity') * .5);
         }
     };
 
@@ -237,7 +237,6 @@
             FlyWeightFader($(e.target));
 
         });
-
 
 
         $(document).keypress(function (e) {
