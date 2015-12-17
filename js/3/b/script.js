@@ -76,18 +76,18 @@
         }
     };
 
-    function StageAdapter(id){
+    function StageAdapter(id) {
         this.index = 0;
         this.contex = $(id);
     }
 
     StageAdapter.prototype.sig = 'stageItem_';
-    StageAdapter.prototype.add = function(item){
+    StageAdapter.prototype.add = function (item) {
         ++this.index;
         item.addClass(this.sig + this.index);
         this.contex.append(item);
     };
-    StageAdapter.prototype.remove = function(index){
+    StageAdapter.prototype.remove = function (index) {
         this.contex.remove('.' + this.sig + index);
     }
 
@@ -104,12 +104,12 @@
                 circle.move(left, top);
             }
 
-            function registerShapes(name,className){
+            function registerShapes(name, className) {
                 _sf.register(name, className);
                 _sf.register(name, className);
             }
 
-            function setStage(stg){
+            function setStage(stg) {
                 _stage = stg;
             }
 
@@ -132,8 +132,8 @@
                 index: index,
                 create: create,
                 add: add,
-                register:registerShapes,
-                setStage:setStage
+                register: registerShapes,
+                setStage: setStage
             };
         }
 
@@ -150,8 +150,8 @@
 
     $(win.document).ready(function () {
         var cgs = CircleGeneratorSingleton.getInstance();
-        cgs.register('green',GreenCircleBuilder);
-        cgs.register('blue',BlueCircleBuilder);
+        cgs.register('green', GreenCircleBuilder);
+        cgs.register('blue', BlueCircleBuilder);
         cgs.setStage(new StageAdapter('.advert'));
         $('.advert').click(function (e) {
             var circle = cgs.create(e.pageX - 25, e.pageY - 25, 'green');
